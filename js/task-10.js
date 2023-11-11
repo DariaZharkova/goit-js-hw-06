@@ -14,6 +14,7 @@ destroyBtn.addEventListener("click", destroyBoxes);
 
 function createBoxes() {
   const amount = numberOfBoxes.value;
+  const arr = [];
 
   for (let i = 0; i < amount; i += 1) {
     const size = 30 + i * 10;
@@ -21,8 +22,10 @@ function createBoxes() {
     newBox.style.width = `${size}px`;
     newBox.style.height = `${size}px`;
     newBox.style.backgroundColor = getRandomHexColor();
-    boxCollection.insertAdjacentElement("beforeend", newBox);
+    arr.push(newBox);
   }
+
+  boxCollection.append(...arr);
 }
 
 function destroyBoxes() {
